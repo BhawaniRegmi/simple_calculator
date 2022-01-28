@@ -44,6 +44,27 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void multiply() {
+    c = double.parse(controller1.text) * double.parse(controller2.text);
+    setState(() {
+      output = c;
+    });
+  }
+
+  void divide() {
+    c = double.parse(controller1.text) / double.parse(controller2.text);
+    setState(() {
+      output = c;
+    });
+  }
+
+  void subtract() {
+    c = double.parse(controller1.text) - double.parse(controller2.text);
+    setState(() {
+      output = c;
+    });
+  }
+
   TextEditingController controller1 = TextEditingController();
   TextEditingController controller2 = TextEditingController();
   @override
@@ -79,7 +100,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               height: 25,
-              width: 30,
+              width: 50,
               color: Colors.white,
               child: Text("$output"),
             ),
@@ -87,13 +108,44 @@ class _HomePageState extends State<HomePage> {
               height: 15,
             ),
             Container(
-              height: 100,
+              color: Colors.white,
               child: MaterialButton(
                   child: Text("Add"),
                   onPressed: () {
                     add();
                   }),
             ),
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              color: Colors.white,
+              child: MaterialButton(
+                  child: Text("Subtract"),
+                  onPressed: () {
+                    subtract();
+                  }),
+            ),
+            SizedBox(height: 15),
+            Container(
+              color: Colors.white,
+              child: MaterialButton(
+                  child: Text("Multiply"),
+                  onPressed: () {
+                    multiply();
+                  }),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              color: Colors.white,
+              child: MaterialButton(
+                  child: Text("Divide"),
+                  onPressed: () {
+                    divide();
+                  }),
+            )
           ],
         ),
       ),
